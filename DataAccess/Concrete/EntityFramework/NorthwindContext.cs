@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess.Concrete.EntityFramework
 {
     //Context : Db tabloları ile proje classlarını bağlamak
-    public class NorthwindContext : DbContext
+    public class NorthwindContext : DbContex
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

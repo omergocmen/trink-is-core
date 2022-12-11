@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete 
 {
-    public class Applications: IEntity
+    public class Application: IEntity
     {
-        public int candidate_id { get; set; }
-        public int job_announcement_id { get; set; }
+        public int candidateId { get; set; }
+        public int jobAnnouncementId { get; set; }
         public string description { get; set; }
-        public enum candidate_communication_info { get; set; }
+        public enum candidateCommunicationInfo { get; set; }
     }
 }
 
