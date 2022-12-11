@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfOrderDal:EfEntityRepositoryBase<Order, ApplicationContext>,IOrderDal
+    public class EfApplicationDal: EfEntityRepositoryBase<Application, ApplicationContext>, IApplicationDal
     {
+
     }
 }

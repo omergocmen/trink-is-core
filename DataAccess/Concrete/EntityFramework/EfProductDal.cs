@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfProductDal : EfEntityRepositoryBase<Product, NorthwindContext>, IProductDal
+    public class EfProductDal : EfEntityRepositoryBase<Product, ApplicationContext>, IProductDal
     {
         public List<ProductDetailDto> GetProductDetailDtos()
         {
-            using (NorthwindContext context=new NorthwindContext())
+            /*using (ApplicationContext context =new ApplicationContext())
             {
                     var result = from p in context.Products
                                  join c in context.Categories
@@ -26,7 +26,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  CategoryName = c.CategoryName, UnitsInStock = p.UnitsInStock };
 
                 return result.ToList();
-            }
+            }*/
+            throw new NotImplementedException();
         }
     }
 }

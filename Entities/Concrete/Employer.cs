@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class User : IEntity
+    public class Employer : IEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CandidateId { get; set; }
+        public int EmployerId { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string FirstName { get; set; }
@@ -27,12 +27,17 @@ namespace Entities.Concrete
         public string? PhoneNumber { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
+        public string? WebAddress { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string? CompanyName { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
         public string Email { get; set; }
 
         [Column(TypeName = "nvarchar(25)")]
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
-
-        public virtual ICollection<Application> Applications { get; set; }
+        public virtual ICollection<JobAnnouncement> JobAnnouncements { get; set; }
     }
 }

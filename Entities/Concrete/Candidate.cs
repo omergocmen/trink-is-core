@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class User : IEntity
+    public class Candidate : IEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -33,6 +33,6 @@ namespace Entities.Concrete
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public virtual ICollection<Application> Applications { get; set; }
+        public virtual ICollection<Application>Applications { get; set; }
     }
 }
