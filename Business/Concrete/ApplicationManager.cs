@@ -21,12 +21,12 @@ namespace Business.Concrete
         }
         public IDataResult<List<Application>> GetAll()
         {
-            return new SuccessDataResult<List<Application>>(applicationDal.GetAll(),Messages.ProductsListed);   
+            return new SuccessDataResult<List<Application>>(applicationDal.GetAll(),Messages.ApplicationListed);   
         }
 
         public IDataResult<Application> GetById(int applicationId)
         {
-            return new SuccessDataResult<Application>(applicationDal.Get(p=>p.ApplicationId==applicationId), Messages.ProductsListed);
+            return new SuccessDataResult<Application>(applicationDal.Get(p=>p.ApplicationId==applicationId), Messages.ApplicationFound);
         }
     }
 }

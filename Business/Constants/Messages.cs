@@ -29,5 +29,16 @@ namespace Business.Constants
 
         public static string MaintenanceTime = "Sistem bakımda";
         public static string AuthorizationDenied = "Yetkiniz yok";
+
+        public static string ApplicationListed = "Başvurular listelendi";
+        public static string ApplicationFound = "Başvuru bulundu";
+        public static string CandidatesListed = "Adaylar listelendi";
+        public static string CandidateFound = "Aday bulundu";
+        public static string CategoryListed = "Kategoriler listelendi";
+        public static string CategoryFound = "Kategori bulundu";
+        public static string EmployersListed = "İş verenler listelendi";
+        public static string EmployerFound = "İş veren bulundu";
+        public static string JobAnnouncementsListed = "İş ilanları listelendi";
+        public static string JobAnnouncementsFound = "İş ilanı bulundu";
     }
 }

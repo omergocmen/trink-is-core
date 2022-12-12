@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface ICategoryService
+    public interface IJobAnnouncementService
     {
-        IDataResult<Category> GetById(int categoryId);
-        IDataResult<List<Category>> GetAll();
+        IDataResult<JobAnnouncement> GetById(int jobannouncementId);
+        IDataResult<List<JobAnnouncement>> GetAll();
     }
 }
-    
