@@ -1,9 +1,11 @@
 ﻿using Core.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +35,8 @@ namespace Entities.Concrete
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        [JsonIgnore]
+        [DataMember]
         public virtual ICollection<Application>Applications { get; set; }
     }
 }

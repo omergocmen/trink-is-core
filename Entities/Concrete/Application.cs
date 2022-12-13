@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Concrete 
@@ -17,12 +19,14 @@ namespace Entities.Concrete
 
         public int CandidateId { get; set; }
         [ForeignKey("CandidateId")]
+        [DataMember]
+        [JsonIgnore]
         public virtual Candidate Candidate { get; set; }
-
 
         public int JobAnnouncementId { get; set; }
         [ForeignKey("JobAnnouncementId")]
-
+        [DataMember]
+        [JsonIgnore]
         public virtual JobAnnouncement JobAnnouncement { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]

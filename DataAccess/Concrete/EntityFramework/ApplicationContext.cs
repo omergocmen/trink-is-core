@@ -11,7 +11,14 @@ namespace DataAccess.Concrete.EntityFramework
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=trinkis;Trusted_Connection=true");
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            foreach (var relationShip in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationShip.DeleteBehavior = DeleteBehavior.NoAction;
+            }
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Category> Categories{ get; set; }
         public DbSet<Candidate> Candidates{ get; set; }
         public DbSet<Employer> Employers { get; set; }

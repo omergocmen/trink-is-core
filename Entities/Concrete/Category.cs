@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Concrete
@@ -17,6 +19,9 @@ namespace Entities.Concrete
 
         [Column(TypeName = "nvarchar(100)")]
         public string CategoryName { get; set; }
-        public virtual ICollection<JobAnnouncement> JobAnnouncements { get; set; }
+
+        [JsonIgnore]
+        [DataMember]
+        public virtual ICollection<JobAnnouncement>? JobAnnouncements { get; set; }
     }
 }
