@@ -12,5 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<Employer> GetById(int employerId);
         IDataResult<List<Employer>> GetAll();
+        IResult Add(Employer employer);
+        IResult Update(Employer employer);
+        IResult Delete(Employer employer);
     }
 }

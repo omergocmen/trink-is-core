@@ -12,5 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<Candidate> GetById(int candidateId);
         IDataResult<List<Candidate>> GetAll();
+        IResult Add(Candidate candidate);
+        IResult Update(Candidate candidate);
+        IResult Delete(Candidate candidate);
     }
 }

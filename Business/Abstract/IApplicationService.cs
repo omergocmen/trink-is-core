@@ -12,5 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<Application> GetById(int applicationId);
         IDataResult<List<Application>> GetAll();
+        IResult Add(Application application);
+        IResult Update(Application application);
+        IResult Delete(Application catapplicationegory);
     }
 }

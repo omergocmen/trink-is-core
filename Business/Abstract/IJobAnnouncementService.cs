@@ -12,5 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<JobAnnouncement> GetById(int jobannouncementId);
         IDataResult<List<JobAnnouncement>> GetAll();
+        IResult Add(JobAnnouncement jobAnnouncement);
+        IResult Update(JobAnnouncement jobAnnouncement);
+        IResult Delete(JobAnnouncement jobAnnouncement);
     }
 }
