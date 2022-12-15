@@ -20,6 +20,18 @@ namespace Business.Concrete
             this.jobAnnouncementDal = jobAnnouncementDal;
         }
 
+        public IResult Add(JobAnnouncement jobAnnouncement)
+        {
+            jobAnnouncementDal.Add(jobAnnouncement);
+            return new SuccessResult(Messages.JobAnnouncementsAdded);
+        }
+
+        public IResult Delete(JobAnnouncement jobAnnouncement)
+        {
+            jobAnnouncementDal.Delete(jobAnnouncement);
+            return new SuccessResult(Messages.JobAnnouncementDeleted);
+        }
+
         public IDataResult<List<JobAnnouncement>> GetAll()
         {
             return new SuccessDataResult<List<JobAnnouncement>>(jobAnnouncementDal.GetAll(), Messages.JobAnnouncementsListed);
@@ -28,6 +40,12 @@ namespace Business.Concrete
         public IDataResult<JobAnnouncement> GetById(int jobannouncementId)
         {
             return new SuccessDataResult<JobAnnouncement>(jobAnnouncementDal.Get(p => p.JobAnnouncementId == jobannouncementId), Messages.JobAnnouncementsFound);
+        }
+
+        public IResult Update(JobAnnouncement jobAnnouncement)
+        {
+            jobAnnouncementDal.Update(jobAnnouncement);
+            return new SuccessResult(Messages.JobAnnoncementUpdated);
         }
     }
 }

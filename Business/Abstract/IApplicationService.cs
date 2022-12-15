@@ -14,6 +14,6 @@ namespace Business.Abstract
         IDataResult<List<Application>> GetAll();
         IResult Add(Application application);
         IResult Update(Application application);
-        IResult Delete(Application catapplicationegory);
+        IResult Delete(Application application);
     }
 }

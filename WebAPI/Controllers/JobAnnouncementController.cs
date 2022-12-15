@@ -7,18 +7,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApplicationController : ControllerBase
+    public class JobAnnoncementController : ControllerBase
     {
-        IApplicationService applicationService;
-        public ApplicationController(IApplicationService applicationService)
+        IJobAnnouncementService jobAnnouncementService;
+        public JobAnnoncementController(IJobAnnouncementService jobAnnouncementService)
         {
-            this.applicationService = applicationService;
+            this.jobAnnouncementService = jobAnnouncementService;
         }
 
         [HttpGet("getall")]
         public IActionResult Get()
         {
-            var result = applicationService.GetAll();
+            var result = jobAnnouncementService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +27,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Application application)
+        public IActionResult Add(JobAnnouncement jobAnnouncement)
         {
-            var result = applicationService.Add(application);
+            var result = jobAnnouncementService.Add(jobAnnouncement);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +38,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Application application)
+        public IActionResult Delete(JobAnnouncement jobAnnouncement)
         {
-            var result = applicationService.Delete(application);
+            var result = jobAnnouncementService.Delete(jobAnnouncement);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +49,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Application application)
+        public IActionResult Update(JobAnnouncement jobAnnouncement)
         {
-            var result = applicationService.Update(application);
+            var result = jobAnnouncementService.Update(jobAnnouncement);
             if (result.Success)
             {
                 return Ok(result);

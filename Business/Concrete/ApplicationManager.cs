@@ -19,6 +19,19 @@ namespace Business.Concrete
         {
             this.applicationDal = applicationDal;
         }
+
+        public IResult Add(Application application)
+        {
+            applicationDal.Add(application);
+            return new SuccessResult(Messages.ApplicationAdded);
+        }
+
+        public IResult Delete(Application catapplicationegory)
+        {
+            applicationDal.Delete(catapplicationegory);
+            return new SuccessResult(Messages.ApplicationDeleted);
+        }
+
         public IDataResult<List<Application>> GetAll()
         {
             return new SuccessDataResult<List<Application>>(applicationDal.GetAll(),Messages.ApplicationListed);   
@@ -27,6 +40,12 @@ namespace Business.Concrete
         public IDataResult<Application> GetById(int applicationId)
         {
             return new SuccessDataResult<Application>(applicationDal.Get(p=>p.ApplicationId==applicationId), Messages.ApplicationFound);
+        }
+
+        public IResult Update(Application application)
+        {
+            applicationDal.Update(application);
+            return new SuccessResult(Messages.ApplicationUpdated);
         }
     }
 }

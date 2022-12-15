@@ -20,9 +20,27 @@ namespace Business.Concrete
             this.employerDal = employerDal;
         }
 
+        public IResult Add(Employer employer)
+        {
+            employerDal.Add(employer);
+            return new SuccessResult(Messages.EmployerAdded);
+        }
+
+        public IResult Delete(Employer employer)
+        {
+            employerDal.Delete(employer);
+            return new SuccessResult(Messages.EmployerDeleted);
+        }
+
         public IDataResult<List<Employer>> GetAll()
         {
             return new SuccessDataResult<List<Employer>>(employerDal.GetAll(), Messages.EmployersListed);
+        }
+
+        public IResult Update(Employer employer)
+        {
+            employerDal.Update(employer);
+            return new SuccessResult(Messages.EmployerUpdated);
         }
 
         IDataResult<Employer> IEmployerService.GetById(int employerId)

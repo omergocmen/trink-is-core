@@ -7,18 +7,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApplicationController : ControllerBase
+    public class CandidateController : ControllerBase
     {
-        IApplicationService applicationService;
-        public ApplicationController(IApplicationService applicationService)
+        ICandidateService candidateService;
+        public CandidateController(ICandidateService candidateService)
         {
-            this.applicationService = applicationService;
+            this.candidateService = candidateService;
         }
 
         [HttpGet("getall")]
         public IActionResult Get()
         {
-            var result = applicationService.GetAll();
+            var result = candidateService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +27,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Application application)
+        public IActionResult Add(Candidate candidate)
         {
-            var result = applicationService.Add(application);
+            var result = candidateService.Add(candidate);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +38,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Application application)
+        public IActionResult Delete(Candidate candidate)
         {
-            var result = applicationService.Delete(application);
+            var result = candidateService.Delete(candidate);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +49,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Application application)
+        public IActionResult Update(Candidate candidate)
         {
-            var result = applicationService.Update(application);
+            var result = candidateService.Update(candidate);
             if (result.Success)
             {
                 return Ok(result);

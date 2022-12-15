@@ -30,18 +30,32 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem bakımda";
         public static string AuthorizationDenied = "Yetkiniz yok";
 
-        public static string ApplicationListed = "Başvurular listelendi";
-        public static string ApplicationFound = "Başvuru bulundu";
-        public static string CandidatesListed = "Adaylar listelendi";
-        public static string CandidateFound = "Aday bulundu";
+        public static string ApplicationListed = "Başvurular başarıyla listelendi";
+        public static string ApplicationFound = "Başvuru başarıyla bulundu";
+        public static string ApplicationAdded = "Başvuru başarıyla eklendi";
+        public static string ApplicationDeleted = "Başvuru başarıyla silindi";
+        public static string ApplicationUpdated = "Başvuru başarıyla güncellendi";
 
-        public static string EmployersListed = "İş verenler listelendi";
-        public static string EmployerFound = "İş veren bulundu";
-        public static string JobAnnouncementsListed = "İş ilanları listelendi";
-        public static string JobAnnouncementsFound = "İş ilanı bulundu";
+        public static string CandidatesListed = "Adaylar başarıyla listelendi";
+        public static string CandidateFound = "Aday başarıyla bulundu";
+        public static string CandidateAdded = "Aday başarıyla eklendi";
+        public static string CandidateDeleted = "Aday başarıyla silindi";
+        public static string CandidateUpdated = "Aday başarıyla güncellendi";
 
-        public static string CategoryListed = "Kategoriler listelendi";
-        public static string CategoryFound = "Kategori bulundu";
+        public static string EmployersListed = "İş verenler başarıyla listelendi";
+        public static string EmployerFound = "İş veren başarıyla bulundu";
+        public static string EmployerAdded = "İş veren başarıyla eklendi";
+        public static string EmployerDeleted = "İş veren başarıyla silindi";
+        public static string EmployerUpdated = "İş veren başarıyla güncellendi";
+
+        public static string JobAnnouncementsListed = "İş ilanları başarıyla listelendi";
+        public static string JobAnnouncementsFound = "İş ilanı başarıyla bulundu";
+        public static string JobAnnouncementsAdded = "İş ilanı başarıyla eklendi";
+        public static string JobAnnouncementDeleted = "İş ilanı başarıyla silindi";
+        public static string JobAnnoncementUpdated = "İş ilanı başarıyla güncellendi";
+
+        public static string CategoryListed = "Kategoriler başarıyla listelendi";
+        public static string CategoryFound = "Kategori başarıyla bulundu";
         public static string CategoryAdded = "Kategoryi başarıyla eklendi";
         public static string CategoryDeleted = "Kategoryi başarıyla silindi";
         public static string CategoryUpdated = "Kategoryi başarıyla güncellendi";

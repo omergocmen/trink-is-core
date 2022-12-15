@@ -7,18 +7,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApplicationController : ControllerBase
+    public class EmployerController : ControllerBase
     {
-        IApplicationService applicationService;
-        public ApplicationController(IApplicationService applicationService)
+        IEmployerService employerService;
+        public EmployerController(IEmployerService employerService)
         {
-            this.applicationService = applicationService;
+            this.employerService = employerService;
         }
 
         [HttpGet("getall")]
         public IActionResult Get()
         {
-            var result = applicationService.GetAll();
+            var result = employerService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +27,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Application application)
+        public IActionResult Add(Employer employer)
         {
-            var result = applicationService.Add(application);
+            var result = employerService.Add(employer);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +38,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Application application)
+        public IActionResult Delete(Employer employer)
         {
-            var result = applicationService.Delete(application);
+            var result = employerService.Delete(employer);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,9 +49,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Application application)
+        public IActionResult Update(Employer employer)
         {
-            var result = applicationService.Update(application);
+            var result = employerService.Update(employer);
             if (result.Success)
             {
                 return Ok(result);
