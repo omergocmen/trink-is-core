@@ -37,6 +37,6 @@ namespace Entities.Concrete
 
         [JsonIgnore]
         [DataMember]
-        public virtual ICollection<Application>Applications { get; set; }
+        public virtual ICollection<Application>? Applications { get; set; }
     }
 }

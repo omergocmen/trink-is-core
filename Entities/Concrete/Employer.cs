@@ -43,6 +43,6 @@ namespace Entities.Concrete
 
         [JsonIgnore]
         [DataMember]
-        public virtual ICollection<JobAnnouncement> JobAnnouncements { get; set; }
+        public virtual ICollection<JobAnnouncement> ? JobAnnouncements { get; set; }
     }
 }

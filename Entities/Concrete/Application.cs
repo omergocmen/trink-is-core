@@ -21,13 +21,13 @@ namespace Entities.Concrete
         [ForeignKey("CandidateId")]
         [DataMember]
         [JsonIgnore]
-        public virtual Candidate Candidate { get; set; }
+        public virtual Candidate ? Candidate { get; set; }
 
         public int JobAnnouncementId { get; set; }
         [ForeignKey("JobAnnouncementId")]
         [DataMember]
         [JsonIgnore]
-        public virtual JobAnnouncement JobAnnouncement { get; set; }
+        public virtual JobAnnouncement ? JobAnnouncement { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]
         public string? Description { get; set; }

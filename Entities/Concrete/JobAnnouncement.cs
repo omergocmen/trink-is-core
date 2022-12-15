@@ -20,13 +20,14 @@ namespace Entities.Concrete
         public int EmployerId { get; set; }
         [ForeignKey("EmployerId")]
         [JsonIgnore]
-        public virtual Employer Employer { get; set; }
+        [DataMember]
+        public virtual Employer ? Employer { get; set; }
 
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         [DataMember]
         [JsonIgnore]
-        public virtual Category Category { get; set; }
+        public virtual Category ? Category { get; set; }
 
         [Column(TypeName = "nvarchar(255)")]
         public string Description { get; set; }
@@ -39,6 +40,6 @@ namespace Entities.Concrete
         
         [JsonIgnore]
         [DataMember]
-        public virtual ICollection<Application> Applications { get; set; }
+        public virtual ICollection<Application> ? Applications { get; set; }
     }
 }
