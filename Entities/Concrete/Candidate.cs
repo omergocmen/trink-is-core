@@ -1,5 +1,5 @@
 ﻿using Core.Entities;
-using Newtonsoft.Json;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,29 +7,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
 namespace Entities.Concrete
 {
-    public class Candidate : IEntity
+
+    [Table("Candidates")]
+    public class Candidate : User
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CandidateId { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string FirstName { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
         [Column(TypeName = "nvarchar(15)")]
         public string? PhoneNumber { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string Email { get; set; }
 
         [Column(TypeName = "nvarchar(25)")]
         public string Password { get; set; }
@@ -37,6 +28,6 @@ namespace Entities.Concrete
 
         [JsonIgnore]
         [DataMember]
-        public virtual ICollection<Application>Applications { get; set; }
+        public virtual ICollection<Application> ? Applications { get; set; }
     }
 }

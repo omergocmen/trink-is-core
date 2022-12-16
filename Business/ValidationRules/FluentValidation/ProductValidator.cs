@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Business.ValidationRules.FluentValidation
 {
     //Entity validation işlemleri bu sınıf içerisinde gerçekleşiyor
-    public class ProductValidator : AbstractValidator<Product>
+    /*public class ProductValidator : AbstractValidator<Product>
     {
         public ProductValidator()
         {
@@ -25,5 +25,5 @@ namespace Business.ValidationRules.FluentValidation
         {
             return arg.StartsWith("A");
         }
-    }
+    }*/
 }

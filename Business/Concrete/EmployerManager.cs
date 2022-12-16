@@ -45,7 +45,7 @@ namespace Business.Concrete
 
         IDataResult<Employer> IEmployerService.GetById(int employerId)
         {
-            return new SuccessDataResult<Employer>(employerDal.Get(p => p.EmployerId == employerId), Messages.EmployerFound);
+            return new SuccessDataResult<Employer>(employerDal.Get(p => p.UserId == employerId), Messages.EmployerFound);
         }
     }
 }

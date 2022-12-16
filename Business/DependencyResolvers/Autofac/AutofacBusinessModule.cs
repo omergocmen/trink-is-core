@@ -33,9 +33,6 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<JobAnnouncementManager>().As<IJobAnnouncementService>().SingleInstance();
             builder.RegisterType<EfJobAnnouncementDal>().As<IJobAnnouncementDal>().SingleInstance();
 
-            builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
-            builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
-
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 

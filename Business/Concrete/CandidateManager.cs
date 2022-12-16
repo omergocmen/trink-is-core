@@ -39,7 +39,7 @@ namespace Business.Concrete
 
         public IDataResult<Candidate> GetById(int candidateId)
         {
-            return new SuccessDataResult<Candidate>(candidateDal.Get(p => p.CandidateId == candidateId), Messages.CandidateFound);
+            return new SuccessDataResult<Candidate>(candidateDal.Get(p => p.UserId == candidateId), Messages.CandidateFound);
         }
 
         public IResult Update(Candidate candidate)

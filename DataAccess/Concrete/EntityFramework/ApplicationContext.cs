@@ -13,6 +13,8 @@ namespace DataAccess.Concrete.EntityFramework
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Employer>().ToTable("Employers");
+            modelBuilder.Entity<Candidate>().ToTable("Candidates");
             foreach (var relationShip in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 relationShip.DeleteBehavior = DeleteBehavior.NoAction;
@@ -20,11 +22,11 @@ namespace DataAccess.Concrete.EntityFramework
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Category> Categories{ get; set; }
-        public DbSet<Candidate> Candidates{ get; set; }
-        public DbSet<Employer> Employers { get; set; }
         public DbSet<JobAnnouncement> JobAnnouncements { get; set; }
         public DbSet<Application>Applications { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
-   
     }
 }
