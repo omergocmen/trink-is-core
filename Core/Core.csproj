@@ -26,4 +26,8 @@
     <Folder Include="CrossCuttingConcerns\Caching\Redis\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
 </Project>

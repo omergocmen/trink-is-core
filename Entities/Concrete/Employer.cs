@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,17 +13,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Employer : IEntity
+
+    [Table("Employers")]
+    public class Employer : User
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int EmployerId { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string FirstName { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
 
         [Column(TypeName = "nvarchar(15)")]
@@ -33,9 +27,6 @@ namespace Entities.Concrete
 
         [Column(TypeName = "nvarchar(100)")]
         public string? CompanyName { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        public string Email { get; set; }
 
         [Column(TypeName = "nvarchar(25)")]
         public string Password { get; set; }

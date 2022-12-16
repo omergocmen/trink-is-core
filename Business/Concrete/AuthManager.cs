@@ -28,8 +28,6 @@ namespace Business.Concrete
                 Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
                 Status = true
             };
             _userService.Add(user);
@@ -38,7 +36,7 @@ namespace Business.Concrete
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
+           /** var userToCheck = _userService.GetByMail(userForLoginDto.Email);
             if (userToCheck == null)
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
@@ -47,9 +45,10 @@ namespace Business.Concrete
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);
-            }
+            }*/
 
-            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+            //return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+            throw new Exception();
         }
 
         public IResult UserExists(string email)
