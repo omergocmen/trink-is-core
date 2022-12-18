@@ -11,6 +11,7 @@ namespace Business.Abstract
     public interface IEmployerService
     {
         IDataResult<Employer> GetById(int employerId);
+        public IDataResult<Employer> GetByEmail(string email);
         IDataResult<List<Employer>> GetAll();
         IResult Add(Employer employer);
         IResult Update(Employer employer);

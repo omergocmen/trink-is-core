@@ -4,6 +4,7 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
+using Entities.Concrete;
 using Entities.DTOs;
 
 namespace Business.Concrete
@@ -11,53 +12,16 @@ namespace Business.Concrete
     public class AuthManager : IAuthService
     {
         private IUserService _userService;
+        private ICandidateService _candidateService;
+        private IEmployerService _employerService;
         private ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService, ITokenHelper tokenHelper)
+        public AuthManager(IUserService userService, ITokenHelper tokenHelper, ICandidateService candidateService, IEmployerService employerService)
         {
             _userService = userService;
             _tokenHelper = tokenHelper;
-        }
-
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
-        {
-            byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            var user = new User
-            {
-                Email = userForRegisterDto.Email,
-                FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName,
-                Status = true
-            };
-            _userService.Add(user);
-            return new SuccessDataResult<User>(user, Messages.UserRegistered);
-        }
-
-        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
-        {
-           /** var userToCheck = _userService.GetByMail(userForLoginDto.Email);
-            if (userToCheck == null)
-            {
-                return new ErrorDataResult<User>(Messages.UserNotFound);
-            }
-
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
-            {
-                return new ErrorDataResult<User>(Messages.PasswordError);
-            }*/
-
-            //return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
-            throw new Exception();
-        }
-
-        public IResult UserExists(string email)
-        {
-            if (_userService.GetByMail(email) != null)
-            {
-                return new ErrorResult(Messages.UserAlreadyExists);
-            }
-            return new SuccessResult();
+            _candidateService = candidateService;
+            _employerService = employerService;
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
@@ -66,5 +30,36 @@ namespace Business.Concrete
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
+
+        public IDataResult<Candidate> LoginCandidate(CandidateLoginDto candidateLoginDto)
+        {
+            Candidate candidate = _candidateService.GetByEmail(candidateLoginDto.Email).Data;
+            if (candidate.Password == candidateLoginDto.Password)
+            {
+                return new SuccessDataResult<Candidate>(candidate, Messages.AccessTokenCreated);
+            }
+            throw new Exception("Giriş Başarısız");
+        }
+
+        public IDataResult<Employer> LoginEmployer(EmployerLoginDto employerLoginDto)
+        {
+            Employer employer = _employerService.GetByEmail(employerLoginDto.Email).Data;
+            if (employer.Password == employerLoginDto.Password)
+            {
+                return new SuccessDataResult<Employer>(employer, Messages.AccessTokenCreated);
+            }
+            throw new Exception("Giriş Başarısız");
+        }
+
+
+        public IDataResult<Employer> RegisterEmployer(EmployerRegisterDto employerRegisterDto)
+        {
+            throw new NotImplementedException();
+        }
+        public IDataResult<Candidate> RegisterCandidate(CandidateRegisterDto candidateRegisterDto)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

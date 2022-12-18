@@ -13,16 +13,15 @@ namespace DataAccess.Concrete.EntityFramework
     {
        public List<OperationClaim> GetClaims(User user)
         {
-            /*using (var context = new ApplicationContext())
+            using (var context = new ApplicationContext())
            {
-               var result = from operationClaim in context.OperationsClaims
+               var result = from operationClaim in context.OperationClaims
                             join userOperationClaim in context.UserOperationClaims
-                                on operationClaim.Id equals userOperationClaim.OperationClaimId
-                            where userOperationClaim.UserId == user.Id
-                            select new OperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };
+                                on operationClaim.OperationClaimId equals userOperationClaim.OperationClaimId
+                            where userOperationClaim.UserId == user.UserId
+                            select new OperationClaim { OperationClaimId = operationClaim.OperationClaimId, OperationClaimName = operationClaim.OperationClaimName };
                return result.ToList();
-
-           }*/
+           }
             throw new NotImplementedException();
         }
     }

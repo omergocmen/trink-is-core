@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,11 @@ namespace Business.Concrete
         IDataResult<Employer> IEmployerService.GetById(int employerId)
         {
             return new SuccessDataResult<Employer>(employerDal.Get(p => p.UserId == employerId), Messages.EmployerFound);
+        }
+
+        public IDataResult<Employer> GetByEmail(string email)
+        {
+            return new SuccessDataResult<Employer>(employerDal.Get(p => p.Email == email), Messages.EmployerFound);
         }
     }
 }

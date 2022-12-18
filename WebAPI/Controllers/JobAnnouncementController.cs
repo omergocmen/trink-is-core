@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace WebAPI.Controllers
 {
@@ -10,9 +11,11 @@ namespace WebAPI.Controllers
     public class JobAnnoncementController : ControllerBase
     {
         IJobAnnouncementService jobAnnouncementService;
-        public JobAnnoncementController(IJobAnnouncementService jobAnnouncementService)
+        IHttpContextAccessor httpContextAccessor;
+        public JobAnnoncementController(IJobAnnouncementService jobAnnouncementService, IHttpContextAccessor httpContextAccessor)
         {
             this.jobAnnouncementService = jobAnnouncementService;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet("getall")]
@@ -26,9 +29,23 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getalljobjobannouncementdetail")]
+        public IActionResult GetAllJobAnnouncementDetail()
+        {
+            var result = jobAnnouncementService.GetAllJobAnnouncementDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpPost("add")]
         public IActionResult Add(JobAnnouncement jobAnnouncement)
         {
+            jobAnnouncement.EmployerId = Convert.ToInt32(httpContextAccessor.HttpContext
+            .User?.Claims?.FirstOrDefault
+            (claim => claim.Type == ClaimTypes.NameIdentifier)?.Value);
             var result = jobAnnouncementService.Add(jobAnnouncement);
             if (result.Success)
             {

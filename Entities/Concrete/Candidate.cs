@@ -22,10 +22,6 @@ namespace Entities.Concrete
         [Column(TypeName = "nvarchar(15)")]
         public string? PhoneNumber { get; set; }
 
-        [Column(TypeName = "nvarchar(25)")]
-        public string Password { get; set; }
-        public DateTime CreatedAt { get; set; }
-
         [JsonIgnore]
         [DataMember]
         public virtual ICollection<Application> ? Applications { get; set; }

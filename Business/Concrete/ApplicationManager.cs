@@ -42,6 +42,16 @@ namespace Business.Concrete
             return new SuccessDataResult<Application>(applicationDal.Get(p=>p.ApplicationId==applicationId), Messages.ApplicationFound);
         }
 
+        public IDataResult<List<Application>> GetByJobAnnouncementId(int jobAnnouncementId)
+        {
+            return new SuccessDataResult<List<Application>>(applicationDal.GetAll(p => p.JobAnnouncementId == jobAnnouncementId), Messages.ApplicationFound);
+        }
+
+        public IDataResult<List<Application>> GetByCandidateId(int candidateId)
+        {
+            return new SuccessDataResult<List<Application>>(applicationDal.GetAll(p => p.CandidateId == candidateId), Messages.ApplicationFound);
+        }
+
         public IResult Update(Application application)
         {
             applicationDal.Update(application);

@@ -17,20 +17,15 @@ namespace Entities.Concrete
     [Table("Employers")]
     public class Employer : User
     {
-        public DateTime BirthDate { get; set; }
-
-        [Column(TypeName = "nvarchar(15)")]
-        public string? PhoneNumber { get; set; }
-
         [Column(TypeName = "nvarchar(100)")]
         public string? WebAddress { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string? CompanyName { get; set; }
 
-        [Column(TypeName = "nvarchar(25)")]
-        public string Password { get; set; }
-        public DateTime CreatedAt { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
+        public string? TaxNumber { get; set; }
+
 
         [JsonIgnore]
         [DataMember]

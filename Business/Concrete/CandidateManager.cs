@@ -41,6 +41,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Candidate>(candidateDal.Get(p => p.UserId == candidateId), Messages.CandidateFound);
         }
+        public IDataResult<Candidate> GetByEmail(string email)
+        {
+            return new SuccessDataResult<Candidate>(candidateDal.Get(p => p.Email == email), Messages.CandidateFound);
+        }
 
         public IResult Update(Candidate candidate)
         {

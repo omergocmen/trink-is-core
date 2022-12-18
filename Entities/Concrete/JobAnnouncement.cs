@@ -18,7 +18,7 @@ namespace Entities.Concrete
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobAnnouncementId { get; set; }
-        public int EmployerId { get; set; }
+        public int ? EmployerId { get; set; }
         [ForeignKey("EmployerId")]
         [JsonIgnore]
         [DataMember]
@@ -37,7 +37,7 @@ namespace Entities.Concrete
 
         [Column(TypeName = "nvarchar(255)")]
         public string Address { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime ? CreatedAt { get; set; }= DateTime.UtcNow;
         
         [JsonIgnore]
         [DataMember]

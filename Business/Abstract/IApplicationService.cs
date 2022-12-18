@@ -12,6 +12,10 @@ namespace Business.Abstract
     {
         IDataResult<Application> GetById(int applicationId);
         IDataResult<List<Application>> GetAll();
+
+        IDataResult<List<Application>> GetByCandidateId(int candidateId);
+        IDataResult<List<Application>> GetByJobAnnouncementId(int jobAnnouncementId);
+
         IResult Add(Application application);
         IResult Update(Application application);
         IResult Delete(Application application);

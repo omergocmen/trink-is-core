@@ -28,6 +28,9 @@ namespace Core.Entities.Concrete
         [Column(TypeName = "nvarchar(100)")]
         public string Email { get; set; }
 
+        [Column(TypeName = "nvarchar(25)")]
+        public string Password { get; set; }
+        public DateTime CreatedAt { get; set; }
         public bool Status { get; set; }
 
         [JsonIgnore]
