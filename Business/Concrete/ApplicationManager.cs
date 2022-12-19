@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,21 @@ namespace Business.Concrete
         {
             applicationDal.Update(application);
             return new SuccessResult(Messages.ApplicationUpdated);
+        }
+
+        public IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetail()
+        {
+            return new SuccessDataResult<List<ApplicationDetailDto>>(applicationDal.GetAllApplicationDetail(), Messages.ApplicationFound);
+        }
+
+        public IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetailByCandidateId(int candidateId)
+        {
+            return new SuccessDataResult<List<ApplicationDetailDto>>(applicationDal.GetApplicationDetailByCandidateId(candidateId), Messages.ApplicationFound);
+        }
+
+        public IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetailByJobAnnouncementId(int jobAnnouncementId)
+        {
+            return new SuccessDataResult<List<ApplicationDetailDto>>(applicationDal.GetApplicationDetailByJobAnnouncementId(jobAnnouncementId), Messages.ApplicationFound);
         }
     }
 }

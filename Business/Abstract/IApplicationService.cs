@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,12 @@ namespace Business.Abstract
 
         IDataResult<List<Application>> GetByCandidateId(int candidateId);
         IDataResult<List<Application>> GetByJobAnnouncementId(int jobAnnouncementId);
+
+        IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetail();
+        IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetailByCandidateId(int candidateId);
+        IDataResult<List<ApplicationDetailDto>> GetAllApplicationDetailByJobAnnouncementId(int jobAnnouncementId);
+
+
 
         IResult Add(Application application);
         IResult Update(Application application);

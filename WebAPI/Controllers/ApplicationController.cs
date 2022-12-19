@@ -48,6 +48,43 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+
+        [HttpGet("getallapplicationdetailbycandidateid")]
+        public IActionResult GetAllApplicationDetailByCandidateId(int candidateId)
+        {
+            var result = applicationService.GetAllApplicationDetailByCandidateId(candidateId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+
+        [HttpGet("getallapplicationdetailbyjobannouncementid")]
+        public IActionResult GetAllApplicationDetailByJobAnnouncementId(int jobAnnouncementId)
+        {
+            var result = applicationService.GetAllApplicationDetailByJobAnnouncementId(jobAnnouncementId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getallapplicationdetail")]
+        public IActionResult GetAllApplicationDetail()
+        {
+            var result = applicationService.GetAllApplicationDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
         public IActionResult Add(Application application)
         {
