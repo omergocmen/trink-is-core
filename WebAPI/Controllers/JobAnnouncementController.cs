@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalljobjobannouncementdetail")]
+        [HttpGet("getalljobannouncementdetail")]
         public IActionResult GetAllJobAnnouncementDetail()
         {
             var result = jobAnnouncementService.GetAllJobAnnouncementDetail();

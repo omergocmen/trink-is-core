@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221217163107_v5")]
-    partial class v5
+    [Migration("20221219070228_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -163,14 +163,14 @@ namespace DataAccess.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(MAX)");
 
-                    b.Property<int>("EmployerId")
+                    b.Property<int?>("EmployerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Experience")
@@ -208,7 +208,7 @@ namespace DataAccess.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("TaxNuber")
+                    b.Property<string>("TaxNumber")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("WebAddress")
@@ -266,8 +266,7 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Concrete.Employer", "Employer")
                         .WithMany("JobAnnouncements")
                         .HasForeignKey("EmployerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Category");
 

@@ -30,7 +30,7 @@ namespace Entities.Concrete
         [JsonIgnore]
         public virtual Category ? Category { get; set; }
 
-        [Column(TypeName = "nvarchar(255)")]
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Description { get; set; }
         public int Experience { get; set; }
         public int Salary { get; set; }

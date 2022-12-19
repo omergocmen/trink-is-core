@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class v4 : Migration
+    public partial class v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,6 +46,8 @@ namespace DataAccess.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(25)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -59,9 +61,7 @@ namespace DataAccess.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(25)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,12 +79,9 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", nullable: true),
                     WebAddress = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     CompanyName = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(25)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    TaxNumber = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -127,13 +124,13 @@ namespace DataAccess.Migrations
                 {
                     JobAnnouncementId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployerId = table.Column<int>(type: "int", nullable: false),
+                    EmployerId = table.Column<int>(type: "int", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
                     Experience = table.Column<int>(type: "int", nullable: false),
                     Salary = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(255)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

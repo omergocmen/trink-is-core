@@ -9,7 +9,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=trinkis;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server = trinkisdb.mssql.somee.com; Database = trinkisdb; User Id = Og125963_SQLLogin_1; Password = zbrymkkisc; TrustServerCertificate = True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
