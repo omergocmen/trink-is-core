@@ -13,6 +13,9 @@ namespace Business.Abstract
     {
         IDataResult<JobAnnouncement> GetById(int jobannouncementId);
         IDataResult<List<JobAnnouncement>> GetAll();
+        IDataResult<List<JobAnnouncement>> GetByCategoryId(int categoryId);
+        IDataResult<List<JobAnnouncement>> GetByExperience();
+        IDataResult<List<JobAnnouncement>> GetByAddress();
         IDataResult<List<JobAnnouncementDetailDto>> GetAllJobAnnouncementDetail();
 
         IResult Add(JobAnnouncement jobAnnouncement);

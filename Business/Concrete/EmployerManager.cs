@@ -53,5 +53,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Employer>(employerDal.Get(p => p.Email == email), Messages.EmployerFound);
         }
+
+        public IDataResult<Employer> GeByCompanyName(string companyName)
+        {
+            return new SuccessDataResult<Employer>(employerDal.Get(p=>p.CompanyName==companyName),Messages.EmployerFound);
+        }
     }
 }

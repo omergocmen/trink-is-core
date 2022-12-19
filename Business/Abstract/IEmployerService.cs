@@ -12,6 +12,7 @@ namespace Business.Abstract
     {
         IDataResult<Employer> GetById(int employerId);
         public IDataResult<Employer> GetByEmail(string email);
+        public IDataResult<Employer> GeByCompanyName(string companyName);
         IDataResult<List<Employer>> GetAll();
         IResult Add(Employer employer);
         IResult Update(Employer employer);

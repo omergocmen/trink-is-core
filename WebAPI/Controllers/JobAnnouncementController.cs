@@ -28,6 +28,49 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int jobAnnouncementId)
+        {
+            var result = jobAnnouncementService.GetById(jobAnnouncementId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbycategoryid")]
+        public IActionResult GetByCategoryId(int categoryId)
+        {
+            var result = jobAnnouncementService.GetByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyexperience")]
+        public IActionResult GetByExperience(int experience)
+        {
+            var result = jobAnnouncementService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyaddress")]
+        public IActionResult GetByAddress(string address)
+        {
+            var result = jobAnnouncementService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpGet("getalljobjobannouncementdetail")]
         public IActionResult GetAllJobAnnouncementDetail()
