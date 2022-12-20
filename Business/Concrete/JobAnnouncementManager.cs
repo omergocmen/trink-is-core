@@ -45,6 +45,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<JobAnnouncementDetailDto>>(jobAnnouncementDal.GetAllJobAnnouncementDetail(), Messages.JobAnnouncementsListed);
         }
 
+        public IDataResult<List<JobAnnouncementDetailDto>> GetAllJobAnnouncementDetailByEmployerId(int employerId)
+        {
+            return new SuccessDataResult<List<JobAnnouncementDetailDto>>(jobAnnouncementDal.GetAllJobAnnouncementDetailByEmployerId(employerId), Messages.JobAnnouncementsListed);
+
+        }
+
         public IDataResult<List<JobAnnouncement>> GetByAddress()
         {
             return new SuccessDataResult<List<JobAnnouncement>>(jobAnnouncementDal.GetAll(), Messages.JobAnnouncementsFound);
@@ -53,6 +59,11 @@ namespace Business.Concrete
         public IDataResult<List<JobAnnouncement>> GetByCategoryId(int categoryId)
         {
             return new SuccessDataResult<List<JobAnnouncement>>(jobAnnouncementDal.GetAll(p => p.CategoryId == categoryId), Messages.JobAnnouncementsFound);
+        }
+
+        public IDataResult<List<JobAnnouncement>> GetByEmployerId(int employerId)
+        {
+            return new SuccessDataResult<List<JobAnnouncement>>(jobAnnouncementDal.GetAll(p => p.EmployerId == employerId), Messages.JobAnnouncementsFound);
         }
 
         public IDataResult<List<JobAnnouncement>> GetByExperience()

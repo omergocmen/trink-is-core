@@ -50,6 +50,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getbyemployerid")]
+        public IActionResult GetByEmployerId(int employerId)
+        {
+            var result = jobAnnouncementService.GetByEmployerId(employerId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getbyexperience")]
         public IActionResult GetByExperience(int experience)
         {
@@ -76,6 +87,18 @@ namespace WebAPI.Controllers
         public IActionResult GetAllJobAnnouncementDetail()
         {
             var result = jobAnnouncementService.GetAllJobAnnouncementDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+        [HttpGet("getalljobannouncementdetailbyemployerid")]
+        public IActionResult GetAllJobAnnouncementDetailByEmployerId(int employerId)
+        {
+            var result = jobAnnouncementService.GetAllJobAnnouncementDetailByEmployerId(employerId);
             if (result.Success)
             {
                 return Ok(result);

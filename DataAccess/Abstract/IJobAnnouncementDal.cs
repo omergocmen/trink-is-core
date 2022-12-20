@@ -14,5 +14,6 @@ namespace DataAccess.Abstract
     public interface IJobAnnouncementDal : IEntityRepository<JobAnnouncement>
     {
         public List<JobAnnouncementDetailDto> GetAllJobAnnouncementDetail();
+        public List<JobAnnouncementDetailDto> GetAllJobAnnouncementDetailByEmployerId(int employerId);
     }
 }

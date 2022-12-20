@@ -43,12 +43,6 @@ namespace Business.Concrete
             employerDal.Update(employer);
             return new SuccessResult(Messages.EmployerUpdated);
         }
-
-        IDataResult<Employer> IEmployerService.GetById(int employerId)
-        {
-            return new SuccessDataResult<Employer>(employerDal.Get(p => p.UserId == employerId), Messages.EmployerFound);
-        }
-
         public IDataResult<Employer> GetByEmail(string email)
         {
             return new SuccessDataResult<Employer>(employerDal.Get(p => p.Email == email), Messages.EmployerFound);
@@ -57,6 +51,11 @@ namespace Business.Concrete
         public IDataResult<Employer> GeByCompanyName(string companyName)
         {
             return new SuccessDataResult<Employer>(employerDal.Get(p=>p.CompanyName==companyName),Messages.EmployerFound);
+        }
+
+        public IDataResult<Employer> GetById(int employerId)
+        {
+            return new SuccessDataResult<Employer>(employerDal.Get(p => p.UserId == employerId), Messages.EmployerFound);
         }
     }
 }
