@@ -51,6 +51,16 @@ namespace Core.Extensions
                 }.ToString()); ;
             }
 
+            if (e.GetType() == typeof(ApplicationException))
+            {
+                httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return httpContext.Response.WriteAsync(new ErrorDetails
+                {
+                    StatusCode = 400,
+                    Message = e.Message,
+                }.ToString()); ;
+            }
+
             return httpContext.Response.WriteAsync(new ErrorDetails
             {
                 StatusCode = httpContext.Response.StatusCode,

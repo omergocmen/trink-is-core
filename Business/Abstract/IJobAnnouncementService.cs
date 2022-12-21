@@ -19,6 +19,7 @@ namespace Business.Abstract
         IDataResult<List<JobAnnouncement>> GetByAddress();
         IDataResult<List<JobAnnouncementDetailDto>> GetAllJobAnnouncementDetail();
         IDataResult<List<JobAnnouncementDetailDto>> GetAllJobAnnouncementDetailByEmployerId(int employerId);
+        IDataResult<JobAnnouncementDetailDto> GetAllJobAnnouncementDetailById(int jobAnnouncementId);
 
         IResult Add(JobAnnouncement jobAnnouncement);
         IResult Update(JobAnnouncement jobAnnouncement);

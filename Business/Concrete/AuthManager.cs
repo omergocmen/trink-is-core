@@ -34,21 +34,21 @@ namespace Business.Concrete
         public IDataResult<Candidate> LoginCandidate(CandidateLoginDto candidateLoginDto)
         {
             Candidate candidate = _candidateService.GetByEmail(candidateLoginDto.Email).Data;
-            if (candidate.Password == candidateLoginDto.Password)
+            if (candidate!=null && (candidate.Password == candidateLoginDto.Password))
             {
                 return new SuccessDataResult<Candidate>(candidate, Messages.AccessTokenCreated);
             }
-            throw new Exception("Giriş Başarısız");
+            throw new ApplicationException("Kullanıcı Adı Veya Şifre Yanlış");
         }
 
         public IDataResult<Employer> LoginEmployer(EmployerLoginDto employerLoginDto)
         {
             Employer employer = _employerService.GetByEmail(employerLoginDto.Email).Data;
-            if (employer.Password == employerLoginDto.Password)
+            if (employer != null && employer.Password == employerLoginDto.Password)
             {
                 return new SuccessDataResult<Employer>(employer, Messages.AccessTokenCreated);
             }
-            throw new Exception("Giriş Başarısız");
+            throw new ApplicationException("Kullanıcı Adı Veya Şifre Yanlış");
         }
 
 

@@ -51,6 +51,11 @@ namespace Business.Concrete
 
         }
 
+        public IDataResult<JobAnnouncementDetailDto> GetAllJobAnnouncementDetailById(int jobAnnouncementId)
+        {
+            return new SuccessDataResult<JobAnnouncementDetailDto>(jobAnnouncementDal.GetAllJobAnnouncementDetailById(jobAnnouncementId), Messages.JobAnnouncementsListed);
+        }
+
         public IDataResult<List<JobAnnouncement>> GetByAddress()
         {
             return new SuccessDataResult<List<JobAnnouncement>>(jobAnnouncementDal.GetAll(), Messages.JobAnnouncementsFound);

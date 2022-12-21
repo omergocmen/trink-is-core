@@ -16,7 +16,7 @@ namespace Entities.DTOs
         public int JobAnnouncementId { get; set; }
         public int EmployerId { get; set; }
         public string EmployerName { get; set; }
-
+        public string CompanyName { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
