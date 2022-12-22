@@ -106,6 +106,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getalljobannouncementdetailbycandidateid")]
+        public IActionResult GetAllJobAnnouncementDetailByCandidateId(int candidateId)
+        {
+            var result = jobAnnouncementService.GetAllJobAnnouncementDetailByCandidateId(candidateId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getalljobannouncementdetailbyid")]
         public IActionResult GetAllJobAnnouncementDetailById(int jobAnnouncementId)
         {

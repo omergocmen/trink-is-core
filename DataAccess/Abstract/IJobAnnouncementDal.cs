@@ -15,6 +15,7 @@ namespace DataAccess.Abstract
     {
         public List<JobAnnouncementDetailDto> GetAllJobAnnouncementDetail();
         public List<JobAnnouncementDetailDto> GetAllJobAnnouncementDetailByEmployerId(int employerId);
+        public List<JobAnnouncementApplicationDetailDto> GetAllJobAnnouncementDetailByCandidateId(int candidateId);
         public JobAnnouncementDetailDto GetAllJobAnnouncementDetailById(int jobAnnouncementId);
 
     }

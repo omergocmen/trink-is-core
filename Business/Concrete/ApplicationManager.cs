@@ -23,8 +23,17 @@ namespace Business.Concrete
 
         public IResult Add(Application application)
         {
-            applicationDal.Add(application);
-            return new SuccessResult(Messages.ApplicationAdded);
+            var Application = applicationDal.Get(p => p.CandidateId == application.CandidateId && p.JobAnnouncementId == application.JobAnnouncementId);
+            if (Application == null)
+            {
+                applicationDal.Add(application);
+                return new SuccessResult(Messages.ApplicationAdded);
+            }
+            else
+            {
+                throw new ApplicationException("Daha Önce Bu İlana Başvuru Yapıldı");
+            }
+
         }
 
         public IResult Delete(Application catapplicationegory)
